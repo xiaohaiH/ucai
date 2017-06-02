@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//作业一：用户输入一个数字，然后判断这个数字能否被5、6整除的情况，根据情况弹出下面4种警告框：1.数字同时被5和6整除；2.这个数字能被5整除，但是不能被6整除；3.这个数字能被6整除，但是不能被5整除；4.这个数字不能被6整除，也不能被5整除；
+//			var nber = window.prompt("请输入数值");
+//			if(nber%6 == 0&&nber%5 == 0){
+//			if(nber%30 == 0){
+//				document.write("这个数既能被5整除，也能被6整除");
+//			}else if(nber%5 == 0&&nber%6 != 0){
+//				document.write("这个数只能被5整除，不能被6整除");
+//			}else if(nber%6 == 0&&nber%5 != 0){
+//				document.write("这个数不能被5整除，但是能被6整除");
+//			}else{
+//				document.write("这个数既不能被5整除，也不能被6整除");
+//			}
+//			第2题：用户输入一个数字，然后再输入一个数字。然后弹出警告框：1.这两个数字的奇偶性相同；2.这两个数字的奇偶性不同。
+//			var ji = window.prompt("输入数值判断奇偶");
+//			var ou = window.prompt("输入数值判断奇偶");
+//				if((ji%2==0) == (ou%2 == 0)){
+//					document.write("你好，这两个奇偶数相同");
+//				}else{
+//					document.write("你好，这两个奇偶数不同");
+//				};
+//				还可以这样写，更简单
+//				if(ji%2 == ou%2){
+//					document.write("你好，这两个奇偶数相同");
+//				}else{
+//					document.write("你好，这两个奇偶数不同");
+//				};
+//				还可以这样写
+//				if((ji+ou)%2 == 0){
+//					document.write("你好，这两个奇偶数相同");
+//				}else{
+//					document.write("你好，这两个奇偶数不同");
+//				};
+
+
+
+//			第3题：用户输入一个年份，判断这个年是否是闰年。判断闰年条件：1 非整百年数除以4，无余为闰，有余不闰；2 整百年数除以400，无余为闰，有余不闰。
+//			var year = window.prompt("输入数值判断是否闰年");
+//				if(year%100==0){
+//					if(year%400 == 0){
+//						document.write("今年是闰年");
+//					}else{
+//						document.write("今年不是闰年");
+//					}
+//				}else{
+//					if(year%4 == 0){
+//						document.write("今年是闰年");
+//					}else{
+//						document.write("今年不是闰年");
+//					}
+//				};
+//				第4题：某个公司要给员工发年终奖，为了奖励老员工，所以工作时间越长，发的越多，规则如下：
+//				工作满0年	 发月薪的1倍月薪年终奖，如果月薪大于8000，那么就是发1.2倍
+//				工作满1年	 发月薪的1.5倍月薪年终奖，如果月薪大于10000，那么就是发1.7倍
+//				工作满2年，甚至更多 发月薪的3倍月薪年终奖，如果月薪大于12000，那么就是发3.2倍
+//				
+//				用JS编写程序，让用户输入工作了几年，可以输入0，然后输入月薪。然后算年终奖。
+				var work = window.prompt("请输入年份");
+				var month = window.prompt("请输入月薪");
+				var reward;
+					if(work <= 0){
+						if(month>=8000){
+							reward=month*1.2;
+						}else{
+							reward=month;
+						}
+					}else if(work>=1&&work<2){
+						if(month>=10000){
+							reward=month*1.7;
+						}else{
+							reward=month*1.5;
+						}
+					}else{
+						if(month>=12000){
+							reward=month*3.2;
+						}else{
+							reward=month*3;
+						}
+					};
+					document.write((reward).toFixed(2));
+		</script>
+	</body>
+</html>

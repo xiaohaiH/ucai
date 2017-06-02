@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+</head>
+<body>
+
+</body>
+<script>
+    //通过字面量创建对象
+//    var obj = {
+//        name:"aaa",
+//        "$%aa":"123",
+//    };
+//    console.log(obj)
+//    console.log(obj.name)
+//    console.log(obj["$%aa"])
+//    console.log(obj["name"]);
+
+//    //通过new 方法来创建对象
+//    var obj2 = new Object();
+//    obj2["$fds"] = "aa";
+//    obj2.aa = "bb";
+//    obj2["sss"] = "liuxing";
+//    console.log(obj2)
+    var obj = {
+        age: "15",
+        sex: "男",
+        aa: function () {
+            if (this.sex == "男") {
+                this.sex = "女";
+                this.bb = "aa"
+            }
+        },
+        bb:function (){
+            this.aa()
+        }
+    };
+
+   obj.bb();//注意：凡是在对象里写的方法，必须先在外面引用一次，引用方法====》对象名.函数名();
+    console.log(obj)
+
+    function fun(a,b,c){
+        alert(this.sex);
+        alert(a - b - c);
+        sex = "aa";
+
+    }
+
+    fun.apply(obj,["4","1","1"])
+
+    //apply   =====》指向函数，将fun里面的this指向替换成obj; apply有两个参数，第一个代表对象，第二个代表实参，实参以数组的方式书写。
+
+    fun.call(obj,4,1,1)
+
+    //call  指向函数，将fun里面的this指向替换成obj; apply有两个参数，第一个代表对象，第二个代表实参，实参用逗号隔开。
+    //apply和call的区别：call实参实用逗号隔开，apply是以数组方式书写，即便只有一个参数
+
+
+//    构造函数
+    function Createfamily(dad,mom,son,sister){
+        this.dad = dad;
+        this.mom = mom;
+        this.son = son;
+        this.sister = sister;
+        return "aa";//注：这个返回值是不起作用的
+    }
+    var onefamily = new Createfamily("月亮","太阳","星星","雨滴")
+    console.log(onefamily)
+</script>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;}
+	</style>
+	<body>
+		<!--利用事件冒泡-->
+		<div onclick="calc()">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button>
+			<button>C</button>
+			<button>+</button>
+			<button>-</button>
+			<button>=</button>
+		</div>
+		<textarea id="txt"></textarea>
+		
+		<div style="margin: 50px;position: relative;">
+			<div style="border: 20px solid yellow; margin: 100px;padding: 50px;width: 400px;height: 300px;background: red;position: absolute;" id="box"></div>
+		</div>
+		<section id="section" style="position: fixed;right: 50px;bottom: 50px;display: none;">
+			回到顶部
+		</section>
+		<div style="height: 5000px;">
+			
+		</div>
+		
+	</body>
+	<script>
+		function calc() {
+			var e = event||arguments[0];//获取event对象
+			var src = e.srcElement||e.target;//获取当前操作对象
+			var txt = document.getElementById("txt")//获取txt
+			if (src.nodeName=="BUTTON") {
+				switch (src.innerHTML){
+					case "C"://清空txt内容
+						txt.innerHTML=""
+						break;
+					case "="://eval() 将txt内容放入eval()函数内 将执行结果返回txt
+						txt.innerHTML=eval(txt.innerHTML);
+						break;
+					default://将src内容追加txt中
+						txt.innerHTML+=src.innerHTML
+						break;
+				}
+			}
+			
+		}
+		
+		
+		var odiv=document.getElementById("box");
+		//border+width+padding
+		console.log(odiv.offsetWidth)
+		console.log(odiv.offsetHeight)
+		//width+padding
+		console.log(odiv.clientWidth)
+		console.log(odiv.clientHeight)
+		//找的是定位的父元素
+		console.log(odiv.offsetTop)
+		console.log(odiv.offsetLeft)
+		odiv.onmousedown=function() {
+			var reX=event.offsetX;//相对于div左上角的坐标
+			var reY=event.offsetY;
+			document.onmousemove=function() {
+				//先找到相对于documen的坐标
+				//再减去相对于div的坐标
+				odiv.style.left=event.clientX+"px";
+				odiv.style.top=event.clientY+"px"
+			}
+		}
+		odiv.onmouseup=function() {
+			document.onmousemove=null
+		}
+		
+	var sec=document.getElementById("section")
+	//鼠标滚轮事件
+	window.onscroll=function() {
+		var scrolltop=document.documentElement.scrollTop+document.body.scrollTop;
+		console.log(scrolltop);
+		if (scrolltop>500) {
+			sec.style.display="block";
+		}else{
+			sec.style.display="none";
+		}
+		sec.onclick=function(){
+			document.body.scrollTop=0;
+		}
+	}
+		
+	</script>
+</html>

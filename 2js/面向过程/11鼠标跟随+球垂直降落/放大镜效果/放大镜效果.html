@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		p,img,div{margin: 0;padding: 0;}
+		#box{border:1px solid greenyellow;width: 170px;height: 170px;position: relative;float: left;margin: 40px;}
+		#box p{width: 60px;height: 60px;background:rgba(157,240,33,.5);position: absolute;top: 0;left: 0;display: none;cursor:move;}
+		#big {width: 100px;height:100px;border:1px solid red;float: left;overflow: hidden;display: none;position: relative;}
+		#big img{position: absolute;top: 0;left: 0;}
+	</style>
+	<body>
+		<div id="box">
+			<img src="img/small.jpg" />
+			<p></p>
+		</div>
+		<div id="big">
+			<img src="img/big.jpg" />
+		</div>
+	</body>
+	<script>
+		var obox = document.getElementById("box");
+		var omove = obox.getElementsByTagName("p")[0];
+		var obig = document.getElementById("big");
+		obox.onmousemove = function(){
+			var e = window.event || arguments[0];//声明event事件
+			omove.style.display = "block";//鼠标放上去显示方块
+			obig.style.display = "block";//鼠标放上去显示大图
+			
+			//注：鼠标移动的值要等于鼠标值-方块的一半，在减去距离盒子的left距离；这样鼠标才会在方块的正中间
+			var omoveleft = (e.clientX - omove.offsetWidth/2 - obox.offsetLeft);//将鼠标向左右移动的值赋给变量
+			var omovetop = (e.clientY - omove.offsetWidth/2 - obox.offsetTop);////将鼠标向上下移动的值赋给变量
+			if(omoveleft <= 0){//判断移动的值如果小于0，则值等于零
+				omoveleft = 0;
+			}else if(omoveleft > obox.offsetWidth - omove.offsetWidth){//判断如果移动的值大于盒子宽减去方块宽的值，则等于盒子宽减去方块宽的值
+				omoveleft = obox.offsetWidth - omove.offsetWidth;
+			}
+			if(omovetop <= 0){//与上图同理
+				omovetop = 0;
+			}else if(omovetop >= obox.offsetHeight - omove.offsetHeight){
+				omovetop = obox.offsetHeight - omove.offsetHeight;
+			}
+			omove.style.left = omoveleft + "px";//然后将变量的值赋给移动的方块
+			omove.style.top = omovetop + "px";//然后将变量的值赋给移动的方块
+			obig.children[0].style.left =omoveleft * -((obig.children[0].offsetWidth - obig.offsetWidth) / (obox.offsetWidth - omove.offsetWidth)) + "px";//大图移动的值要等于:方块移动的值乘以大小图的比例值 ===>方块移动的值 * (大图隐藏的区域/小图隐藏的区域)
+			obig.children[0].style.top =omovetop * -((obig.children[0].offsetHeight - obig.offsetHeight) / (obox.offsetHeight - omove.offsetHeight)) + "px";//原理同上
+		}
+		obox.onmouseout = function(){
+			omove.style.display = "none";//鼠标离开box盒子时，方块和大图同时隐藏
+			obig.style.display = "none";
+		}
+	</script>
+</html>

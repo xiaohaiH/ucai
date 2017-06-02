@@ -1,0 +1,68 @@
+<!doctype html >
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>打气球</title>
+</head>
+<style>
+    .ball{width:96px;height:121px;background:url(img/ballon.png) no-repeat;position:absolute;left: 0;top:0;display:none;}
+    #score{position:absolute;left: 20px;top: 40px;z-index:3;width:120px;height:60px;line-height: 60px;font-size:16px;color:violet;}
+    #set{position:absolute;left: 300px;top: 40px;z-index:3;}
+</style>
+<body>
+	<div id="score">分数：</div>
+	<div id="set">计时2分钟</div>
+</body>
+<script>
+	var oscore =  document.getElementById("score");//获取分数容器
+	var scoresum = 0;//声明变量来存储分数
+    function Balloon(){//创建构造函数
+        var that = this;//将this进行备份
+        that.ball = document.createElement("div");//创建div
+        that.ball.className = "ball";//赋予class名
+        document.body.appendChild(that.ball);//添加至页面中
+        that.score = parseInt(Math.random() * 12);//产生分数对应图片的随机数
+        that.init();//使用原型模型里的方法
+    };
+    Balloon.prototype.init = function (){
+        var that = this;
+        var aa = document.documentElement.offsetWidth||document.body.offsetWidth;//获取页面宽度
+        var bb = that.ball.offsetWidth||getComputedStyle(that.ball,false).width;//获取气球
+        that.top = document.documentElement.clientHeight||document.body.clientHeight;//将页面高度赋给对象的top值
+        that.left = parseInt(Math.random() * (aa  - parseInt(bb) * 2));//设置对象的left值且left值不超过页面宽度
+        setInterval(function(){//设置定时器
+            that.ball.style.top = that.top + "px";//将top值赋给气球
+            that.ball.style.left = that.left + "px";//将left值赋给气球
+            that.ball.style.backgroundPosition = that.score % 4 * -96 + "px " + parseInt(that.score / 4) * -121 + "px ";//将背景图片定位且图片上的分数对应他的下标值
+            that.top-=2;//设定气球上升的速度
+            if(that.score <= 8&&that.score >=6){//判断如果气球分数大等于5则加快气球速度
+            	that.top-=2;
+            }
+        },30)
+        setTimeout(function(){that.ball.style.display = "block";},30)//让气球再页面中显示出来，默认是隐藏的
+        that.ball.onclick = function(){//当点击气球时，进行分数的判断，等于8(*)时,分数翻倍，等于9(/)分数减半，等于10时，分数归零，不在这个序列，则分数相加。
+            if(that.score == 8){
+            	scoresum *=2;
+            }else if(that.score == 9){
+            	scoresum /=2;
+            }else if(that.score == 10){
+            	scoresum =0;
+            }else if(that.score > 10){
+            	alert("哈哈，这个是骗点击的")
+            }else{
+            	scoresum +=that.score + 1;
+            }
+        	oscore.innerHTML = "分数：" + scoresum;//将分数添加到页面上
+        	that.ball.style.display = "none";//当点击到气球时，气球消失。
+        }
+    };
+    for(var j=0;j<5;j++){
+        var oball = new Balloon();
+    }
+    var timer = setInterval(function(){
+        var oball = new Balloon();
+    },600)
+    setTimeout(function(){clearInterval(timer)},120000)
+    setTimeout(function(){alert(scoresum)},126000)
+</script>
+</html>

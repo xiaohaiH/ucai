@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .name{width: 64px;height: 120px; background: url("img/run.png") no-repeat; position: absolute;left: 0; top: 0; }
+        .name2{width: 64px; height: 120px;background: url("img/run.png") no-repeat; position: absolute; left: 0; top: 100px; }
+    </style>
+</head>
+<body>
+    <!--<div id="run"></div>-->
+</body>
+<script>
+//    var orun = document.getElementById("run");
+//    var i = 0;
+//    var j = 0;
+//    var k = 0;
+//    setInterval(function(){
+//        k+=3;
+//        if(j==0){
+//            orun.style.backgroundPositionX = i*-64+"px";
+//            orun.style.left = k+"px";
+//            orun.style.backgroundPositionY = "-257px";
+//            i++;
+//            if(i>=8){
+//                j=1;
+//            }
+//        }else{
+//            i--;
+//            orun.style.backgroundPositionX = i*-64+"px";
+//            orun.style.backgroundPositionY = "-146px";
+//            orun.style.left = k+"px";
+//            if(i<=0){
+//                j=0;
+//            }
+//        }
+////        console.log(orun.style.backgroundPosition)
+//    },20);
+    function Run(runlx,runly,runry,name){//定义形参，来回移动需要3个参数，背景x值定位位置，去方向的top值定位位置，来方向的top值定位位置
+        var that = this;
+        that.pic = document.createElement("div");//创建div
+        that.pic.className = name;//赋class名
+        document.body.appendChild(that.pic);//将节点添加到页面中
+        that.i=0;
+        that.k=1;
+        that.turn = true;
+        that.move = function(){
+            setInterval(function(){
+                if(that.turn == true){
+                    if(that.i>7){
+                        that.i=0;
+                    };
+                    if(that.pic.offsetLeft < (document.documentElement.clientWidth||document.body.clientWidth)-that.pic.offsetWidth) {
+                        that.pic.style.backgroundPosition = that.i * runlx + "px " + runly + "px";
+                        that.pic.style.left = (that.k += 2) + "px";
+                        that.i++;
+                    }else{
+                        that.turn = false;
+                    }
+                }else{
+                    if(that.pic.offsetLeft > document.documentElement.clientLeft||document.body.clientLeft){
+                        that.i--;
+                        if(that.i<0){
+                            that.i=7;
+                        };
+                        that.pic.style.backgroundPosition = that.i * runlx + "px " + runry + "px";
+                        that.pic.style.left = (that.k-=2) + "px";
+                    }else{
+                        that.turn = true;
+                    }
+                };
+            },100)
+        }
+    }
+    var Running = new Run("-64","-277","-149","name");
+    Running.move();
+    var Running = new Run("-64","-19","-405","name2");
+    Running.move();
+</script>
+</html>

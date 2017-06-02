@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="calc">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button>
+			<button>5</button>
+			<button>7</button>
+			<button>8</button>
+			<button>9</button>
+			<button>0</button>
+			<button>C</button>
+			<button>+</button>
+			<button>-</button>
+			<button>*</button>
+			<button>/</button>
+			<button>=</button>
+		</div>
+		<textarea id="text"></textarea>
+	</body>
+	<script>
+		var otext = document.getElementById("text");//获取ID
+		var ocalc = document.getElementById("calc");//获取ID
+		ocalc.onclick = function(){//给ocalc添加点击事件，通过事件冒泡流来制作简易计算器
+			var e = window.event||arguments[0];//创建一个event事件，并给IE做兼容
+			var src = event.srcElement || event.target;//获取点击位置的信息，这句话的意思是获取点击位置的信息
+				if(src.nodeName == "BUTTON"){// 判断点击位置的的节点类型是不是按钮类型，如果是继续输入
+					switch (src.innerHTML){//判断点击的元素里的值
+						case "C":  //如果是C，则清空里面的文本
+						otext.value = "";
+						break;
+						case "="://如果是等于，则利用eval函数来计算里面的值
+						otext.value = eval(otext.value);
+						break;
+						default://如果是其他的，则不断累加里面的值
+						otext.value = otext.value + src.innerHTML;
+						break;
+					}
+				}
+		}
+	</script>
+</html>

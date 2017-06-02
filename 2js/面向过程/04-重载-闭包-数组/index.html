@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body onunload="load()">
+		<script>
+			//arguments:重载
+			
+			//1.求和参数里面的值
+//			function add(){
+////				console.log(arguments.length);//检查参数的长度。
+//				var sum=0;//定义一个变量，用来接收参数和.
+//				for(var i=0;i<arguments.length;i++){
+//					sum+=arguments[i];
+//				}
+//				return sum;
+//			};
+//			console.log(add(1,1,1,1,1,1,1,5));
+
+
+
+
+			//2.当参数只有1个时，执行第一个命令，当参数有两个时，执行第三个命令；当参数有三个时，执行第二个命令；
+//			function aa(a,b,c,d){
+//				switch(arguments){
+////					case 1
+////						console.log(++a);
+////					break;
+//					case 2
+//						console.log(a+b);
+//					break;
+//					case 3;
+//						console.log(c--);
+//					break;
+//				}
+//			};
+//			aa(1,11,1)
+			//闭包
+			// 1.通过闭包传参作业练习
+//			function aa(){
+//				var i=1;
+//				var bb = function(){
+//					return i++;
+//				}
+//				return bb;
+//			};
+//			var cc = aa();
+//			console.log(cc());
+//			console.log(cc());
+//			console.log(cc());
+//			console.log(cc());
+			//闭包
+			// 2.通过闭包传参作业练习：在页面上创建5个按钮，然后点击每个按钮弹出这个按钮的下标值
+//			for(var i=0;i<5;i++){
+//				var aa = document.createElement("input");
+//				aa.setAttribute("type","button");
+//				aa.setAttribute("value",i);
+//				document.body.appendChild(aa);
+//				(function(n){
+//					aa.onclick = function(){
+//						alert(n);
+//					};
+//				})(i);
+//			}
+
+
+
+//			for(var i=0;i<5;i++){
+//				var creation = document.createElement("input");
+//				creation.setAttribute("type","button");
+//				creation.setAttribute("value",i);
+//				document.body.appendChild(creation);
+//				(function(j){
+//					
+//				})(i)
+//			}
+
+
+
+//			//闭包
+			// 3.通过闭包传参作业练习：创建一个定时器，3秒后依次弹出1,2,3
+//			for(var i=1;i<=3;i++){
+//				(function(j){
+//					setTimeout(function(){
+//						document.write(j+"<br/>");
+//					},3000)
+//				})(i)
+//			}
+
+			//数组
+////			var a = new Array("7");
+////			console.log(a)
+//			var arr = ["日","一","二","三","四","五","六"];
+//			var ccc= arr;
+////			arr=null;
+////			ccc = [null];
+//			ccc.splice(7,0,9,9,9)
+////			ccc=null
+//			console.log(arr)
+
+//			str = "liuxing yuy oul ailin";
+//			document.write(str.split(""));
+//			console.log(typeof str.split("",3))
+			
+//			console.log(str.split(""))
+
+//		load是在加载完成之后再运行的!!
+//		for(;true;){
+//				
+//		}
+//		function load(){
+//			alert("a")
+//		}
+		</script>
+	</body>
+</html>

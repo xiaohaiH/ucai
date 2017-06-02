@@ -1,0 +1,68 @@
+API:应用编程接口，已经实现的现成对象和方法
+数组API：
+	1、数组-》字符串
+		arr.toString();
+		arr.join("连接符")
+		将字母拼接成单词；将单词拼接成句子
+		优化：频繁拼接字符串容易造成内存浪费；
+			  先将要拼接字符串放入数组中，在进行拼接
+	2、数组拼接截取:原对象保持不变，返回新数组
+		var newarr=arr.concat(值1,值2,...);
+		var newarr=arr.slice(start,end)
+		截取arr中从start起到end结尾位置之间的数组元素并返回新数组
+		含头不含尾
+		给负值 倒着数
+	3、删除，插入。替换splic()
+		arr.splic(start,n,"")
+	4、翻转数组arr.reverse()
+	5、arr.indexOf(n,start)查找元素第一次出现的位置；
+	6、arr.sort()默认将一切元素转成字符串进行排序
+	7、arr.push()//向数组末尾增添
+	   arr.pop()//向数组末尾删除一个元素
+       arr.unshift()//向数组开头增添
+	   arr.shift()//向数组开头删除
+二维数组：数组中元素引用另一个数组对象
+	when:需要保存横行竖列的数据；具有上下级包含关系时
+	arr[行下标][列下标]	
+	注意：一维数组下标越界不会报错
+		   二维数组列下标越界不会报错，行下标越界会报错
+JS内置对象：ES标准规定的由厂商已经实现的对象
+11种：Number String Boolean
+	  Array Math Date RegEx//正则
+	  Error
+	  Function Object
+	  Global全局
+js常见错误：
+	1、SyntaxError：语法错误
+	2、ReferenceError：引用错误，找不到变量对象
+	3、TypeError：类型错误 错误使用了对象中方法
+	4、RangeError：参数范围错误。参数超出范围
+	5、URLError：url路径错误
+	6、EvalError：调用eval函数时出错
+字符串对象：多个字符组成的一个只读的集合（数组）
+		   凡数组操作中，不修改原对象的API字符串都可以直接用；
+	String API
+	1、转义字符：当字符串内容和程序中特殊符号冲突时或字符串包含功能字符时候
+				用\转化字符意义
+	2、大小写：凡是希望大小写一视同仁的情况下 转成相同格式，在比较
+		str.toUpperCase()；转大写
+		str.toLowerCase();小写
+	3、获取指定位置字符str[i]|str.charAt()
+					  str.charCodeAt()
+	4、获取关键词位置str.indexOf("关键词",开始位置)；
+	5、截取字符串str.substring(2,8)|str.substr(起始位置,n个)
+	6、分割字符串var arr=str.split("分隔符"，n);返回的是数组
+	   when：今后只要是对字符串内容分段处理 先分割再遍历
+	   固定套路：讲字符串打散为字符数组str.split("")；
+	7、str.replace("要替换内容","替换的内容")
+	 注：替换只能执行一次，需要全局匹配，使用正则
+Math对象：封装数学计算的对象，封装数学计算中常用常量以及方法
+	1、取整： Math.round(num)四舍五入
+			 Math.ceil(num)上取整
+			 Math.floor(num)下取整
+	2、Math.pow(x,y)
+	3、Math.max(值1，值2，...)返回较大的数
+	   Math.min(值1，值2，...)返回较大的数
+	   Math.max.apply(Math,arr)返回数组中较大数字
+	   Math.min.apply(Math,arr)返回数组中较小数字
+	4、随机数：Math.random();

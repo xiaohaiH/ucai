@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<ul style="background:red;">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<script>
+		var oul =  document.getElementsByTagName("ul")[0];
+			oul.onmouseover = function (e){
+					if (!e) e = window.event; //给IE做的兼容
+					var reltg = e.relatedTarget;//定义relatedTarget--用来判断
+					if(!e.relatedTargaet){//如果当前元素为真，值不变，如果浏览器不支持这这个属性，这个属性为空时，就给鼠标来自的那个元素
+						e.relatedTarget
+					}else{ //=======================================》这句话是做IE兼容的
+						e.fromElement;
+					};
+					while (reltg && reltg != this){//判断reltg存在且不是当前对象，不断产生循环，直到是当前对象---这个时候reltg是他的子级
+						reltg = reltg.parentNode;//reltg等于当前对象
+					};
+					if (reltg != this) {//判断如果reltg不是当前对象
+					// 这里可以编写 onmouseenter 事件的处理代码
+						console.log("c")
+						oul.style.display = "block";
+					}
+		}
+		oul.onmouseout = function (e){
+				if (!e) e = window.event;
+				var reltg = e.relatedTarget ? e.relatedTarget : e.toElement;
+				while (reltg && reltg != this) reltg = reltg.parentNode;
+				if (reltg != this) {
+				// 这里可以编写 onmouseenter 事件的处理代码
+					var timer = setTimeout(function(){
+						oul.style.display = "none";
+						console.log("d")
+					},1000)
+//					alert('111');
+				}
+//			that =this
+		}
+	</script>
+</html>

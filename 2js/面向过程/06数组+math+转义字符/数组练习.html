@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			var str = "wozaiyebuyuanjiannizaishenyelipaihuaibuyuannizaibiedenan";
+//			var arr = [1,2,3,4,5,67,8,9,0];
+//			var arr2 = [3,5,6,8,9];
+//			console.log(str.slice(2,4));//提取字符串，含头不含尾;不会改变数组   结果为za，从2包括2开始截取，到4不包括4结束
+//			arr.reverse();//颠倒数组；会改变原有数组
+//			console.log(arr);
+//			arr.splice(2,5)//删除数组中的字符，arr.splice(起始点的下标值，删除数量(必选)，添加数量(可选)),从下标位置处开始删除；  会改变原有数组
+//			arr.splice(2,0,arr2)//
+//			console.log(arr)
+//			var arrstr = str.split("y",10);//分割字符串；不会改变原数组，需要定义新的变量来保存
+//			console.log(arrstr);
+//			var group = arr.concat(arr2,arrstr);//拼接数组，可拼接多个；不会改变原有数组，需要定义新的变量来保存
+//			console.log(group)
+//			var str2 = arr.join("分隔符,可选");//将数组转换成字符串,括号里写分隔符；不会改变原有数组，需要定义新的变量来保存,
+//			console.log(str2)
+//			console.log(arr.indexOf(67，"起始点"))//查找67的元素，从起始点开始查找(起始点可选)
+//			arr.sort();
+//			console.log(arr);//以升序排列，默认是将元素 转换成字符串进行比较排列
+
+
+
+//			随意输入一个数值,将他转换成二进制
+//			var val = parseInt(window.prompt("请输入数值"));
+//			var arr = [];
+////			function aa(vala){
+////				while(vala){
+////					arr.unshift(vala%2);
+////					vala = parseInt(vala/2);
+////				}
+////				return arr.join("");
+////			}
+////			console.log(aa(val))
+//
+//			while(val){
+//				arr.unshift(val%2);
+//				val = parseInt(val/2);
+//			}
+//			console.log(arr)
+			
+//			分别写出邮箱的用户名和域名
+//			var mail = "773884562@qq.com";
+//			var i = mail.indexOf("@");
+//			console.log("用户"+mail.slice(0,i));
+//			console.log("域名"+mail.slice(i+1));
+			
+//			首字母大写
+//			var str = "no zuo no die";
+//			function UpperCase(){
+//				var arr = str.split(" ");
+//				var bbb = []
+//				for(var i=0;i<arr.length;i++){
+//					arr[i]= arr[i][0].toUpperCase() + arr[i].slice(1);
+//				}
+//				return arr;
+//			}
+//			console.log(UpperCase())
+
+			//取数组中最大值
+//			var arr = [1,5,6,4,6,7,4,4,4333,0];
+//			console.log(Math.min.apply(Math,arr)); //取数组中最大值
+			//取整
+//			console.log(Math.round(5.5))//四舍五入取整
+//			console.log(Math.ceil(5.5))//向上取整
+//			console.log(Math.floor(5.5))//向下取整
+//			console.log(Math.pow(5,5))//5的5次方
+//			console.log(Math.max(4,5,6,7,7,8,8,9,444,321))//取最大值
+//			console.log(Math.min(4,5,6,7,7,8,8,9,444,321))//取最小值
+//			console.log(Math.random())//取0~1之间的随机数,1和0不会出现
+//			console.log(parseInt(Math.random()*11))//取1到10之间的随机数
+			
+			
+//			随机开双色球，红色球有6个，红球最大数为33，蓝色球1个，蓝球最大数为16，小于10的球前面要加0，不能有重复的球出现。
+//			繁杂版
+//			function double(){//定义函数
+//				var arr = [],arr2 = [];//定义红色和蓝色的球体的容器
+//				for(var i=0;i<6;i++){//产生一个循环，让6个球都产生一个随机数
+//					arr[i] = Math.ceil(Math.random() * 33);
+//				};
+//				for(i=1;i<arr.length;i++){//产生外循环，查找6个球中是否有重复的值
+//					for(var j=0;j<i;j++){//产生内循环，查找6个球中是否有重复的值
+//						while(arr[i]==arr[j]){//由第i个球依次第j个球依次进行对比，如果有值重复则i重新赋值，跳出内循环，然后i从1开始重新判断
+//							arr[i] = Math.ceil(Math.random() * 33);//
+//							i=0;
+//							break;
+//						}
+//					}
+//				}
+//				for(i=0;i<6;i++){//如果6个数的值小于10，则在数字前加个零；
+//					if(arr[i]<10){
+//						arr[i]="0"+arr[i];
+//					}
+//				}
+//				arr2[0] = Math.ceil(Math.random() * 16);//让蓝色球产生一个随机数
+//				if(arr2[0]<10)arr2[0]="0"+arr2[0];//如果蓝色球的值小于10，则在数字前加个零；
+//				return arr.concat(arr2)//返回数组的值
+//			}
+//			console.log(double())
+
+//			精简版
+//			function double(){//定义函数
+//				var arr = new Array(7);//定义红色和蓝色的球体的容器
+//				for(var i=0;i<arr.length-1;i++){//产生一个循环，让6个球都产生一个随机数
+//					arr[i] = Math.ceil(Math.random() * 33);
+//				};
+//				for(i=1;i<arr.length-1;i++){//产生外循环，查找6个球中是否有重复的值
+//					for(var j=0;j<i;j++){//产生内循环，查找6个球中是否有重复的值
+//						while(arr[i]==arr[j]){//由第i个球依次第j个球依次进行对比，如果有值重复则i重新赋值，跳出内循环，然后i从1开始重新判断
+//							arr[i] = Math.ceil(Math.random() * 33);//
+//							j=-1;
+//						}
+//					}
+//				}
+//				arr[arr.length-1] = Math.ceil(Math.random() * 16);//让蓝色球产生一个随机数
+//				for(i=0;i<arr.length;i++){//如果6个数的值小于10，则在数字前加个零；
+//					if(arr[i]<10)arr[i]="0"+arr[i];
+//				}
+//				return arr//返回数组的值
+//			}
+//			console.log(double())
+			
+//			精简版
+//			function num(){
+//				var arr = [];
+//				for(var i=0;arr.length<6;i++){
+//					arr[i] = Math.ceil(Math.random() * 33);
+//					if(arr[i]<10)arr[i]="0"+arr[i];
+//					while(arr.indexOf(arr[i])!=i){
+//						arr.pop();
+//						i--;
+//					}
+//				}
+//				arr[arr.length] = Math.ceil(Math.random() * 16);
+//				if(arr[arr.length-1]<10){arr[arr.length-1]="0"+arr[arr.length-1]};
+//				return arr;
+//			}
+//			console.log(num())
+			
+			
+			
+		</script>
+	</body>
+</html>

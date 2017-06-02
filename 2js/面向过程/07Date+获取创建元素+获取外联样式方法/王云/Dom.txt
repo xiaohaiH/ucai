@@ -1,0 +1,51 @@
+DHTML：动态网页技术统称
+	HTML CSS JS
+	7大对象：
+	window：当前浏览器打开窗口
+	document：当前正在打开的HTML文档
+	navigator：封装了软件的版本信息和部分设置
+	history：封装了当前窗口成功浏览过的网址历史记录
+	location：当前窗口栏中地址
+	screen：当前显示器
+	event：事件对象
+HTML|XHTML|DHTML|XML 	
+ES ECMAScript：欧洲计算机协会
+BOM：浏览器对象模型；用来访问和操纵浏览器窗口，没人制定标准，但被广泛支持
+DOM：文档对象模型；W3C组织定义和访问的错做标准，可以对网页对象做任意修改；
+核心DOM：所有结构化文档通用API
+DOM树：在HTML中DOM将文档视作一棵DOM树
+	   文档中的元素、属性、文本、注释都被看做成一个节点-Node
+	  当页面被加载进内存的时候，浏览器为为网页创建一个document对象
+	 所有节点都是document子节点
+	 document对象封装了网页中所有子节点的增加、删除、 修改
+获取节点
+	document.getElementById       获取特定id的元素节点
+	document.getElementsByTagName 获取相同元素的节点列表 
+	document.getElementsByName    获取相同name名称的节点列表
+	并不所有标签具备name属性，ie8兼容有问题
+	document.getElementsByClassName获取相同class属性的节点列表
+子节点：
+	childNodes
+	nodeName用来获取元素节点标签名称
+	nodeValue用来获取文本节点文本内容
+	nodeType 用来判断到底是什么节点（元素 1，文本3）
+	节点树												元素树
+	childNodes		获取当前元素节点的所有子节点			.children
+	firstChild		获取当前元素节点的第一个子节点			.firstElementChild
+	lastChild		获取当前元素节点的最后一个子节点		.lastElementChild
+	parentNode 			获取当前节点的父节点				.parentElement 
+	previousSibling	获取当前节点的上一个同级节点			.previousElementSibling
+	nextSibling		获取当前节点的下一个同级节点			.nextElementSibling
+	ownerDocument	获取文档根节点 相当于document
+元素树：仅由元素节点组成的树结构（6）
+.innerHTML开始标签和结束标签之间HTML原文
+	兼容问题 table tr 
+.textContent:开始和结束标签之间文本内容 innerText(ie8)
+XX.textContent||XX.innerText
+父容器.insertBefore(新添加元素,旧元素)-》把新添加元素房放旧元素之前
+注：旧元素需要在父容器内
+操作元素样式属性
+	1、通过HTMLElement提供的标准属性
+		对象.style.属性 =属性值
+	2、.setAttribute（"属性"，"属性值"）修改
+		.getAttribute（“属性”）；

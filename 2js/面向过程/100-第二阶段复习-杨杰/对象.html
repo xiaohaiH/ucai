@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <META CHARSET="UTF-8">
+
+  <STYLE>
+
+  </STYLE>
+
+ </HEAD>
+
+ <BODY>
+  
+ </BODY>
+
+<script>
+
+var obj = {};
+
+// obj.a 代表 obj 对象 中的 a
+//  当对象里面没有 属性的时候，我们是可以往属性赋值
+//  相当于在对象 obj 里面新增另一个属性 a, 并且这个值是 a
+obj.a = 100;
+obj.b = 200;
+obj.c = 300;
+
+
+//  obj.a 完全等价于 obj["a"]
+console.log("obj.a: " + obj.a);
+console.log("obj['a']: " + obj["a"]);
+
+
+// 如何把对象 obj 中所有的属性都输出来？
+///   我只要属性名
+//  快速遍历 的写法
+//    遍历obj这个对象中所有的属性
+for (var key in obj )
+{
+	// 属性名 key
+	console.log(key);
+	// 属性值 obj.a, obj.b
+	//        obj["a"]
+
+	// obj["key"] ==> obj.key
+	// 因为key这里是一个变量，
+	//    所以，不能加双引号，否则变成 字符串了
+	console.log(obj[key]);
+}
+
+
+
+
+
+</script>
+
+</HTML>

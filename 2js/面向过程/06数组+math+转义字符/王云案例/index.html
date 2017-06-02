@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*var arr=[1,2,3,4,5]
+		//var str=arr.toString();
+		var str=arr.join("");
+		var str1="no";
+		var str2="zuo";
+		var str3="no";
+		var str4="die";
+		var arr2=[str1,str2,str3,str4]
+		console.log(arr2.join(" "))
+		var arr1=["you1","can2","you3","up4"];
+		var arr2=["no","can","no","bb"];
+		var newarr=arr1.concat("!",arr2,"haha");
+		console.log(arr1.slice(-1));
+		arr1.splice(1,2)
+		console.log(arr1)
+		var arr=[1,23,13,45,51,123];
+		arr.push(124)//向数组末尾增添
+		arr.pop()//像数组末尾删除一个元素
+		arr.unshift(0)//向数组开头增添
+		arr.shift()//向数组开头删除
+		console.log(arr)
+		function dec2(dec){
+			var a=[];
+			while (dec>0){
+				a.unshift(dec%2);
+				dec=parseInt(dec/2);
+			}
+			return a.join("")
+		}
+		console.log(dec2(901))
+		var arr2048=[
+			[2,4,8,0],
+			[0,0,0],
+			[0,0,0,0],
+			[0,0,0,0]
+		]
+		//遍历二维数组
+		for(var row=0;row<arr2048.length;row++){
+			for (var col=0;col<arr2048[row].length;col++) {
+				console.log(arr2048[row][col])
+			}
+		}
+		window.c.log(arr2048)*/
+		var youxiang = "he l lo wo rld";
+		console.log(youxiang.split(" ",2))
+		var say="no zuo no die";
+
+		function parsefrist(str) {
+			var arr=str.split(" ");
+			for (var i=0;i<arr.length;i++) {
+				arr[i]=arr[i][0].toUpperCase()+arr[i].slice(1);
+			}
+			return arr.join(" ")
+		}
+		console.log(parsefrist(say))
+		function reve(str) {
+			return str.split("").reverse().join("");
+		}
+		console.log(reve(say))
+		var name="习近平习近平习近平";
+		console.log(name.replace("习近平","+++"))
+		var num=3.1415;
+		var arr=[1,2,3,4,5]
+		console.log(Math.floor(Math.random()*50)+50)
+	</script>
+</html>

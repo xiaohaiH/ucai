@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<div id="aaa"></div>
+		<div id="bbb"></div>
+		<div class="ddd"></div>
+		<div class="eee"></div>
+		<script>
+			function aa(id){
+				if(document.getElementById(id)){
+					return document.getElementById(id)
+				}else{
+					return document.getElementsByClassName(id);
+				}
+			}
+		</script>
+	</body>
+</html>

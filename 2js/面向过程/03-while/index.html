@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//break：是跳出本次循环，如果有多个循环，不会影响外层循环；
+			//break 绑定标签：这个是停止多个循环；
+			//continue：跳过本次循环；执行下一次循环。
+			//continue 绑定标签：跳过绑定标签的循环，执行下一次循环。
+			//在标签前输入字符并加个冒号，是标签绑定的意思；名字随意起
+//			aaa:for(var i=0;i<10;i++){
+//				for(var j=0;j<10;j++){
+//					if(j==5||i==5){
+////						break;//当输入到5时，跳出当前循环，j不会出现6以后的数字；因为是跳出内循环，所以i除了5以外都会出现。
+////						break aaa;//跳出绑定标签的循环；i不会出现0以后的数字，j不会出现5以后的数字；
+////						continue;//当输入到5时，跳过本次循环；j除了5以外的数字都会出现。
+////						continue aaa;//当输入到5时，跳过aaa本次循环，i除了5以外的数字都会出现，j不会出现5以后的数字；因为是多个循环，跳出aaa循环，相当于是重新开始循环了所以j不会出现5以后的数字
+//					}
+//					console.log(i,j)
+//				}
+//			}
+//			封装函数
+//			function envelop(val1,val2,aa){
+//				for(var i=val1;i<=aa;i++){
+//					if(aa%i==val2){
+//						document.write(i+"&nbsp")
+//					}
+//				console.log(i);
+//				}
+//				return i;
+//			};
+//			envelop(1,9,100);
+//			console.log(envelop(1,9,100))
+
+//			var a=123;
+//			function aa(a){
+//				 a =456;
+//				 console.log(a)
+//			};
+//			aa(a);
+//			console.log(a)
+//			形参(形式参数)：function未运行时后所跟着的参数
+//			实参(实际参数)：function运行时后所跟着的参数
+//			(function(a){
+//				console.log(a)
+//			})(5)
+			//当function不需要调用时，用括号把function括起来，然后在写()括号里输入实参，里面function里面输入形参。		
+//			作业   1：给下午讲的代码添加注释
+//			var a=100;
+//			(function(){
+//				console.log(a);//这里输出undefined；因为变量声明会提前，值留在原地，局部变量声明不会超出函数范围。
+//				var a=5;
+//				console.log(a)//这里输出5；变量声明会提前，值留在原地。
+//			})()
+//			console.log(a);//这里输出100；因为局部变量不会影响函数外的同名变量。
+//			作业   2:
+//			function foo(){
+//				console.log(3)
+//				return 1;
+//			}
+//			foo();//这里输出2；因为函数声明提前，包括函数内容。
+//			function foo(){
+//				console.log(2);
+//			}
+//			foo();////这里输出2；因为函数声明提前，包括函数内容。
+//			var foo=100;
+//			console.log(foo);//100，声明提前，值留在原地。
+//			foo()//报错，不是一个function；因为数值赋值函数，相当于不是一个function而是一个变量。
+//			var a=4;
+//			function fun(){
+//				a=5;
+//				console.log(a);
+//			}
+//			fun();//这里输出5，因为js是从上往下解析的。
+//			console.log(a);//这里输出5，因为a是全局变量，所以输出5。
+//			var a=100;
+//			function fun(a){
+//				a++;
+//				console.log(a);
+//			}
+//			fun(100);//101;因为js是从上往下解析的。
+//			console.log(a);//100;因为形参是局部变量。
+//			var fun1 = function(){
+//				console.log(1)
+//			}
+//			fun1();//这里输出1；因为变量声明提前，值留在原地，而js是从上往下解析的。
+//			var fun1 = function(){
+//				console.log(2)
+//			}
+//			作业2：算出1！+2！+3！+4！。。。10！ 算出1~10的阶乘和。
+//			var x=0;
+//			for(var i=1;i<=10;i++){
+//				var c = 1;
+//				for(var j=1;j<=i;j++){
+//					c=j*=i
+//					console.log(j*=i)
+////					console.log(j*=i);
+//				}
+////				x+=c;
+////				console.log(x)
+////				console.log(i)
+//			}
+//			var sum =0,a=1;
+//			for(var i=1;i<=4;i++){
+//				sum+=a*=i;
+//				console.log(a)
+//			}
+//			console.log(sum)
+//			function(a){
+//				var n=window.prompt("请输入数值");
+//				for(var i=1;i<=a;i++){
+//					sum
+//				}
+//			}
+//			作业3：编写一个函数，写入实参，返回值等于实参倒着书写。例实参123；返回值321.
+//			function aaa(bbb){
+//				var d=0;
+//				for(;bbb;bbb=parseInt(bbb/10)){
+//					d*=10;
+//					d+=(bbb%10);
+//				}
+//				return d;
+//			}
+//			console.log(aaa(123567899));
+//			作业4：菲波那契数列求n项和
+//			function fun(n){
+//				if(n==1||n==2){
+//					return 1;
+//				}else{
+//					return fun(n-1)+fun(n-2);
+//				}
+//			}
+//			console.log(fun(2));
+
+//			function aaa(c){
+//				if(c==1||c==2){
+//					return 1;
+//				}else{
+//					return aaa(c-1)+aaa(c-2);
+//				}
+//			};
+//			console.log(aaa(2));
+			
+			
+
+
+
+		</script>
+	</body>
+</html>

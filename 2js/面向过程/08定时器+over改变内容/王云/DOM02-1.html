@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="DOM02.css"/>
+	</head>
+	<body>
+		<ul id="nav">
+			<li style="border-bottom: 2px solid red;">优才课堂</li>
+			<li>HTML5课程</li>
+			<li>安卓课程</li>
+			<li>PHP课程</li>
+		</ul>
+		<ul id="box">
+			<li class="active">优才课堂</li>
+			<li>HTML5课程</li>
+			<li>安卓课程</li>
+			<li>PHP课程</li>
+		</ul>
+		<div id="ad">
+			我是个广告！
+			<span style="color: red;">5</span>秒自动关闭
+		</div>
+	</body>
+	<script>
+		//保存boxlist下标、navlist下标  判断下标——》相同
+		var navlist=document.getElementById("nav").getElementsByTagName("li");
+		var boxlist=document.getElementById("box").getElementsByTagName("li")
+		for(var i=0;i<boxlist.length;i++){
+			boxlist[i].index = i;	
+		}
+		for (var i=0;i<navlist.length;i++) {
+				navlist[i].index =i;
+				navlist[i].onclick = function() {
+					for (var j=0;j<navlist.length;j++) {
+						if (boxlist[j].index==this.index) {
+							this.style.borderBottom="2px solid red";
+							boxlist[j].style.display="block";
+						}else{
+							boxlist[j].style.display="none";
+							navlist[j].style.borderBottom=""
+						}
+					}	
+				}
+				
+			}
+		var time=setInterval(function() {
+			var ad=document.getElementById("ad");
+			var span = ad.getElementsByTagName("span")[0];
+			span.innerHTML-=1;
+			if (span.innerHTML==0) {
+				ad.style.display="none";
+				clearInterval(time)
+			}
+		},1000)
+	function c() {
+		console.log(1);
+		setTimeout(c,2000)
+	}
+	setTimeout(c,2000)
+	setInterval(function () {
+		console.log(2);
+	},2000)
+	</script>
+</html>

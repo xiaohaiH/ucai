@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;list-style: none;}
+		div{width: 500px;height: 300px;border: 1px solid #CCCCCC;overflow: hidden;}
+		ul{width: 3000px;height: 300px;}
+		li{width: 500px;height: 300px;float:left;}
+	</style>
+	<body>
+		<div>
+			<ul>
+				<li style="background: red;">1</li>
+				<li style="background: gray;">2</li>
+				<li style="background: yellow;">3</li>
+				<li style="background: orange;">4</li>
+				<li style="background: green;">5</li>
+				<li style="background: red;">1</li>
+			</ul>
+		</div>
+	</body>
+	<script src="base.js"></script>
+	<script>
+		var oul=document.getElementsByTagName("ul")[0];
+		var i=1;
+		setInterval(function() {
+			if (i==6) {
+				oul.style.marginLeft=0;
+				i=1;
+			}
+			startMove(oul,{"margin-left":i*(-500)},function() {
+				alert(1);
+			});
+			i++;
+		},2000)
+	</script>
+</html>

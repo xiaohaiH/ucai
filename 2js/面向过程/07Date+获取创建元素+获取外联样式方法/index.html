@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="index.css" rel="stylesheet" />
+	</head>
+	<body>
+		<ul id="list">
+			<li id="ll">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+		</ul>
+		<p></p><div id="box">
+			<p></p>
+			<span id="aaa"></span>
+			<br />
+		</div><span></span>
+		<div class="box">
+			
+		</div>
+		<p class="box">
+			
+		</p>
+		<div id="concent">
+			<div></div>
+			<div id="box2"></div>
+		</div>
+		<p id="bbb"></p>
+		<script> 
+//			var d = new Date();
+//			document.write(Date())//返回当日的日期和时间
+//			document.write("<br/>")
+//			document.write(d.getFullYear()+"年")//返回四位数的年份
+//			document.write("<br/>")
+//			document.write(d.getMonth()+1+"月")//返回四位数的年份
+//			document.write("<br/>")
+//			document.write(d.getDate()+"日")//返回当月中的某一天
+//			document.write("<br/>")
+//			document.write("星期"+d.getDay())//返回本周中的某一天
+//			document.write("<br/>")
+//			document.write(d.getHours()+"时")//返回本周中的某一天
+//			document.write(d.getMinutes()+"分")//返回本周中的某一天
+//			document.write(d.getSeconds()+"秒")//返回本周中的某一天
+//			document.write("<br/>")
+//			document.write(d.getTime())//返回本周中的某一天
+//			document.write("<br/>")
+//			document.write(d.getUTCDay())//返回本周中的某一天	
+
+//			获取元素
+//			var oul = document.getElementById("list");//通过ID获取到节点.
+//			console.log(oul);
+//			var oli = document.getElementsByTagName("li");//通过元素节点名称获取元素节点，节点以数组形式展现
+//			var oli2 = document.getElementsByTagName("li")[7];//如在节点后输入数组值，则只找到值下标的节点
+//			console.log(oli);
+//			var obox = document.getElementsByClassName("box");//通过class类名名称获取class节点，class节点以数组形式展现
+//			var obox2 = document.getElementsByClassName("box")[2];//如在节点后输入数组值，则只找到值下标的节点
+//			console.log(obox)
+			
+			//通过childNodes来获取oul下的子元素，是以数组形式出现。
+				//childNodes 通过父元素来获取子元素，						注意：：：：获取后是以数组的形式出现，必须在后加childNodes[*]。
+				//nodeType 用来判断子元素是什么类型的节点
+				//nodeValue	获取文本节点里的文本
+				//nodename	获取元素节点的名称;  
+//			firstChild获取第一个子节点     注：包含空格和换行
+//			console.log(oul.firstChild)
+
+//			lastChild获取最后一个子节点     注：包含空格和换行
+//			console.log(oul.lastChild)
+			
+//			parentnode获取父元素的节点
+//			console.log(oul.parentNode)
+//			console.log(ll.parentNode)
+//			console.log(ll.parentElement)
+			
+//			previousSibling 获取同级节点的上一个节点
+//			console.log(box.previousSibling)
+
+//			nextSibling 获取同级节点的下一个节点
+//			console.log(box.nextSibling)
+
+//			ownerDocument 获取根目录
+//			console.log(box.ownerDocument)
+
+//			console.log(oul.childNodes);
+//			例:找到ul下的li节点
+//			for(var i=0;i<oul.childNodes.length;i++){
+//				if(oul.childNodes[i].nodeType==1){
+//					console.log(oul.childNodes[i])
+//					
+//				}
+//			}
+//			修改li的值加上5
+//			for(var i=0;i<oul.childNodes.length;i++){
+//				var oli3 = oul.childNodes;
+//				if(oli3[i].nodeType==1){
+//					console.log(oli3[i].childNodes[0].nodeValue=Number(oli3[i].childNodes[0].nodeValue)+5);
+//				}
+//			}
+			
+//			children获取子节点  ，获取的子节点是以数组形式来展示的        注：这个只获取元素节点，不会获取本文节点
+//			console.log(oul.children)
+			
+//			children.innerHTML:获取子节点下的所有文本和节点内容   注：用children.innerHTML获取节点和文本内容要给他后面加个数组children[0].innerHTML
+//			console.log(document.body.children[0].innerHTML)
+			
+//			children.innerText:(ie8有兼容问题)获取子节点下的所有文本内容   注：用children.innerText获取文本内容要给他后面加个数组children[0].innerText
+//			console.log(document.body.children[0].innerText)
+//			children.textContent(火狐有兼容问题)等同于children.innerText    
+//			console.log(document.body.children[0].textContent)
+//			碰到兼容问题可以这样写  ======>    xx.innerText||xx.textContent
+
+//			firstElementchild:获取第一个子节点
+//			console.log(oul.firstElementChild)
+			
+//			lastElementChild:获取最后一个子节点
+//			console.log(oul.lastElementChild)
+			
+//			parentElement:获取父节点
+//			console.log(aaa.parentElement)
+			
+//			previousElementSibling:获取上一个同级元素节点
+//			console.log(aaa.previousElementSibling)
+			
+//			nextElementSibling:获取下一个同级元素节点
+//			console.log(aaa.nextElementSibling)
+
+
+
+
+//			document.createElement(元素名)：创建元素
+			var pp = document.createElement("a");//创建a节点并命名为pp
+				pp.style.display = "block";//给pp写样式
+				pp.style.height = "20px";//给pp写样式
+				pp.style.background = "red";//给pp写样式
+				pp.innerHTML = "123456";//给pp写样式
+				pp.href = "#";//给pp写样式
+			var pp2 = document.createElement("a");//创建a节点并命名为pp2
+				pp2.style.display = "block";//给pp写样式
+				pp2.style.height = "20px";//给pp写样式
+				pp2.style.background = "red";//给pp写样式
+				pp2.innerHTML = "123456";//给pp写样式
+				pp2.href = "#";//给pp写样式
+//			父节点.appendChild(添加的节点):添加元素
+			document.body.appendChild(pp);//将pp节点放到body节点中
+//			父.insertBefore(要插入的节点,插入节点的位置):插入元素到某个位置     注：插入节点的位置可以直接写父节点下的值    也必须是输入父节点下的
+			document.body.insertBefore(pp,list)//将pp节点放到父节点下的list节点前
+//			父.removeChild(删除的节点)：删除某个节点
+			list.removeChild(list.children[3])//删除list(ul)下的第四个(li)节点；
+//			父.replaceChild(新节点,旧节点) ：替换节点
+			list.replaceChild(pp2,list.children[1])//将list(ul)下的第2个(li)节点替换成pp2
+			
+			
+//			获取外部样式表的属性
+			var str = document.getElementById("bbb");
+//			console.log(getComputedStyle(str,false).height);//或者这样写============>正常写法：这个有兼容问题，IE8不支持
+//			console.log(getComputedStyle(str,null)["width"])//====================>正常写法：这个有兼容问题，IE8不支持
+//			
+//			console.log(str.currentStyle["width"])//===============================>IE8兼容问题解决办法   ====>只支持IE8
+			function fn(obj,attr){
+				if(obj.currentStyle){
+					return obj.currentStyle[attr];
+				}else{
+					return getComputedStyle(obj,false)[attr];
+				}
+			}
+			console.log(fn(str,"width"))//将获取外部样式表的元素封装起来   封装必须用[]不能用.属性 来书写。
+		</script>
+	</body>
+</html>

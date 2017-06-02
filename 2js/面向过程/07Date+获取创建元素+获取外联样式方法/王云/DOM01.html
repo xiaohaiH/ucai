@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="lest">
+			<li id="fourli">
+				<div>5</div>
+			</li>
+			<li class="odd">5</li>
+			<li>6</li>
+			<li class="odd">7</li>
+			<li>8</li>
+		</ul>
+		<ul id="nav">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+		</ul>
+	</body>
+	<script>
+		//当页面加载完成是触发
+			window.onload=function() {
+				var odiv = document.createElement("div");
+				var ospan = document.createElement("span");
+				var op = document.createElement("p");
+				odiv.appendChild(op);
+				op.innerHTML="我是p标签"
+				ospan.innerHTML="我是span标签";
+				odiv.insertBefore(ospan,op);//在op之前添加
+				odiv.removeChild(op);//移除
+				ospan.onclick=function() {
+					var newspan = document.createElement("span");
+					newspan.innerHTML="新的span";
+					odiv.replaceChild(newspan,ospan);
+				}
+				document.body.appendChild(odiv)
+				
+				var nav=document.getElementById("nav");
+				nav.onclick = function() {
+					var newnav=nav.cloneNode(false);
+					document.body.appendChild(newnav)
+				}
+				
+				for (var i=0;i<6;i++) {
+					var input=document.createElement("input");
+					input.style.background="greenyellow";
+					input.setAttribute("type","button")
+					console.log(input.getAttribute("type"))
+					input.onclick=function() {
+						this.style.display="none";
+					}
+					document.body.appendChild(input);
+					
+				}
+				
+				
+			}
+		</script>
+</html>

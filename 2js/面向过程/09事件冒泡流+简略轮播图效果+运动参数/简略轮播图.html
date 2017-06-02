@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style type="text/css">
+		/***/
+			.banner{
+				overflow: hidden;
+				width:600px;
+				height:300px;
+				position: relative;
+			}
+			.banner ul:nth-child(1){
+				margin: 0;
+				padding: 0;
+				/*width:3000px;*/
+				width:3600px;
+				text-align: center;
+			}
+			.banner ul:nth-child(1) li{
+				width:600px;
+				height:300px;
+				line-height:300px;
+				float: left;
+				list-style: none;
+			}
+			.banner ul:nth-child(1) li:nth-child(1){
+				background:pink;
+			}
+			.banner ul:nth-child(1) li:nth-child(2){
+				background:violet;
+			}
+			.banner ul:nth-child(1) li:nth-child(3){
+				background:orange;
+			}
+			.banner ul:nth-child(1) li:nth-child(4){
+				background:darkorange;
+			}
+			.banner ul:nth-child(1) li:nth-child(5){
+				background:orchid;
+			}
+			.banner ul:nth-child(1) li:nth-child(6){
+				background:pink;
+			}
+			
+			.banner .sbox{
+				position:absolute;
+				/*width: 300px;*/
+				height: 10px;
+				bottom:20px;
+				right: 40px;
+			}
+			.banner .sbox li{
+				margin: 0 20px;
+				width:30px;
+				height:30px;
+				line-height:30px;
+				float: left;
+				list-style: none;
+				text-align: center;
+				border-radius:50%;
+				background: rgba(128,128,128,.5);
+			}
+			.banner .sbox .listcolor{
+				background: greenyellow;
+				border: 1px solid white;	
+			}
+		</style>
+	</head>
+	<body>
+		<div class="banner">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+			<ul class="sbox">
+				<li class="listcolor">1</li>
+				<li >2</li>
+				<li >3</li>
+				<li >4</li>
+				<li >5</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/sport.js"></script>
+	<script>
+		var obanner = document.getElementsByClassName("banner")[0].children[0];
+		var olist = document.getElementsByClassName("banner")[0].children[1].children;
+		var i = 0;
+		var timer2 = setInterval(move,3000);
+		function move(){
+			i++;
+			if(i>=6){i=1;obanner.style.marginLeft="0px";};
+			startmove(obanner,{"marginLeft":i*-600});
+			for(var j=0;j<olist.length;j++){
+				olist[j].className = "none";
+			}
+			olist[i>=5?0:i].className = "listcolor";
+			console.log(i)
+			for(var j=0;j<olist.length;j++){
+				olist[j].index = j;
+				olist[j].onclick = function(){
+					clearInterval(timer2);
+//					obanner.style.marginLeft = this.index * -600 + "px";
+					startmove(obanner,{"marginLeft":this.index*-600});
+					console.log(this.index,obanner,{"marginLeft":this.index * -600})
+					for(var k=0;k<olist.length;k++){
+						olist[k].className = "none";
+					}
+					i = this.index;
+					this.className = "listcolor";
+					timer2 = setInterval(move,3000);
+				}
+			}
+//			click(olist,{"marginLeft":i*-600},obanner)
+		};
+	</script>
+</html>
+<!--obanner.style.marginLeft="0px";-->

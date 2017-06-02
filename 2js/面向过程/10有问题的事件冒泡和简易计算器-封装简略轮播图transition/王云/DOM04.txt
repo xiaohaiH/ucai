@@ -1,0 +1,38 @@
+事件：用户和web页面进行交互时，解释器会自动创建相应的event对象用来被描述事件信息
+事件处理函数：相应事件调用的函数；
+3种事件
+	1、鼠标处理：
+	2、键盘事件：onkeydown onkeyup
+	3、状态事件：onlond
+绑定事件：
+	1、html  <标签 onclick=“js语句”>
+	2、js    对象.onclick=函数对象
+	3、DOM标准情况加  对象.addEventListener("事件名"，函数对象，是否在捕获阶段触发)
+	   ie8   对象.attachEvent（“on事件名”，函数对象）
+this当前对象
+元素目标对象var src=event.srcElement||event.target
+事件周期：从浏览器捕获事件后，一直到最后一个事件触发完所经历的过程
+	3个阶段：
+		1、捕获（由外到内）：从最外层HTML开始由外向内灼曾记录每个元素绑定的事件处理函数，到目标元素为止
+		2、事件触发：自动执行目标元素绑定的事件处理函数
+		3、事件冒泡（由内到外）：从目标元素父元素开始逐层向上执行每层事件处理函数，直到html
+event对象
+	获取：var e = arguments[0]||window.event
+	html  <标签 onclick=“fun(event)”>
+取消事件冒泡：
+	e.stopPropagation()	
+事件坐标：
+	相对于浏览器显示区域坐标clientX，clientY
+	相对于元素左上角位置坐标 offsetX，offsetY
+	
+	offsetWidth
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

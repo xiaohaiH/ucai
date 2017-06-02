@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{margin: 0;padding: 0;}
+		div{margin: 0 auto;}
+		.one{width: 600px;height: 600px;background: red;}
+		.two{width: 400px;height: 400px;background: yellow;}
+		.thr{width: 200px;height: 200px;background: blue;}
+	</style>
+	<body>
+		<div class="one" onclick="fun()">
+			<div class="two" onclick="fun()">
+				<div class="thr" onclick="fun()">
+					
+				</div>	
+			</div>
+		</div>
+	</body>
+	<script>
+		
+		
+		function fun(){//永远指操作的元素目标对象
+			var src= event.srcElement||event.target
+			alert(src.className)
+		}
+		/*function fun(){//永远指操作的元素目标对象
+			var src= event.srcElement||event.target
+			alert(src.className)
+		}
+		function fun2(){//this逮谁跟谁走
+			alert(this)
+		}
+		function  fun3(div) {
+			alert(div.className)
+		}*/
+	</script>
+</html>

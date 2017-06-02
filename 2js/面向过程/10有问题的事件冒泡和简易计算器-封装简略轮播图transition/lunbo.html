@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.box{
+			width:400px;
+			height:200px;
+			position:relative;
+			overflow: hidden;
+		}
+		.box ul li{
+			list-style: none;
+			float: left;
+			width: 400px;
+			height: 200px;
+		}
+		.box ul{
+			width: 2000px;
+			margin: 0;
+			padding: 0;
+		}
+		.box ul li:nth-child(1){
+			background: greenyellow;
+		}
+		.box ul li:nth-child(2){
+			background: orangered;
+		}
+		.box ul li:nth-child(3){
+			background: orange;
+		}
+		.box ul li:nth-child(4){
+			background: green;
+		}
+		.box ul li:nth-child(5){
+			background: greenyellow;
+		}
+		.box p{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			margin: auto 0;
+			width: 30px;
+			height: 50px;
+			background:rgba(0,0,0,.5);
+			display: none;
+		}
+		.box p:nth-child(2){
+			left: 0;
+		}
+		.box p:nth-child(3){
+			right: 0;
+		}
+		.box .btn{
+			position: absolute;
+			right:0;
+			bottom: 10px;
+			text-align: center;
+			line-height: 30px;
+		}
+		.box .btn span{
+			float: left;
+			width: 30px;
+			height: 30px;
+			background:rgba(0,0,0,.5);
+			border-radius:50%;
+			margin: 0 10px;
+		}
+		.one{margin:0 auto;width:600px;height:600px;background:greenyellow;}
+		.two{margin:0 auto;width:400px;height:400px;background:orange;}
+		.three{margin:0 auto;width:200px;height:200px;background:violet;}
+	</style>
+	<body>
+		<!--<div class="box">
+			<ul class="banner" style="transition:all 2s">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+			<p class="page"></p>
+			<p class="page"></p>
+			<div class="btn">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+			</div>
+		</div>-->
+		<div class="one" onclick="ale()" >
+			<div class="two" onclick="ale()">
+				<div class="three" onclick="ale()" ></div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var oone = document.getElementsByClassName("one")[0];
+		var otwo = document.getElementsByClassName("two")[0];
+		var othree = document.getElementsByClassName("three")[0];
+//		oone.onclick = ale;
+//		otwo.onclick = ale;
+//		othree.onclick = ale;
+		function ale(div){//自定义函数
+			var e = window.event||arguments[0];//获取event对象
+			var src = event.srcElement||event.target;//获取点击位置的值，跟this作用差不多，但是当有元素内有多个事件时，没取消事件冒泡的话，会全部执行一遍，执行的样式全是点击位置的样式
+			if(e.stopPropagation){//取消事件冒泡，并给IE做兼容，else是兼容的内容
+				e.stopPropagation()
+			}else{
+				e.cancelBubble = true;
+			};
+				alert(src.className);
+			
+		}
+//		oone.addEventListener("mouseover",ale,false)
+	</script>
+	
+	<!--<script>
+		function $IC(id){
+			if(document.getElementById(id)){
+				return document.getElementById(id);
+			}else{
+				return document.getElementsByClassName(id);
+			}
+		}
+		var banner = $IC("banner")[0];
+		var obox = $IC("box")[0];
+		var opage = $IC("page");
+		var obtn = $IC("btn")[0].children;
+		startmove(obox,banner,opage,obtn,4000,(parseInt(getComputedStyle(banner.children[0],false)["width"])))
+		function startmove(obj,scroll,page,btn,time,scrollwidth){
+			var next = 0;
+			move()
+			var timer = setInterval(move,time);
+			function move(){
+				next++;
+				if(next>=scroll.children.length){
+					next=0;
+					scroll.style.transition = "none";
+					scroll.style.marginLeft = 0;
+					setTimeout(function(){
+						next++;
+						scroll.style.transition = "all 2s";
+						scroll.style.marginLeft = next*(-scrollwidth) + "px";
+					},20);
+				}
+				scroll.style.marginLeft = next*(-scrollwidth) + "px";
+				obj.onmouseover = function(){
+					clearInterval(timer);
+					for(var i=0;i<page.length;i++){
+						page[i].style.display = "block";
+					}
+				}
+				obj.onmouseout = function(){
+					timer = setInterval(move,time);
+					for(var i=0;i<page.length;i++){
+						page[i].style.display = "none";
+					}
+				}
+				for(var i=0;i<btn.length;i++){
+					btn[i].index = i;
+					btn[i].onclick = function(){
+						next = this.index;
+						scroll.style.marginLeft = this.index*(-scrollwidth) + "px";
+					}
+				}
+				for(var j=0;j<page.length;j++){
+					page[0].onclick = function(){
+						next--;
+						if(next<0){
+							next=scroll.children.length-1;
+							scroll.style.transition = "none";
+							setTimeout(function(){
+								next--;
+								scroll.style.transition = "all 2s";
+								scroll.style.marginLeft = next*(-scrollwidth) + "px";
+							},20);
+						}
+						scroll.style.marginLeft = next*(-scrollwidth)+"px";
+					}
+					page[1].onclick = function(){
+						move()
+					}
+				}
+			};
+		}
+			
+	</script>-->
+</html>

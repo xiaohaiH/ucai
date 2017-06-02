@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="DOM02.css"/>
+	</head>
+	<body>
+		<button onclick="change(1)">皮肤1</button>
+		<button onclick="change(2)">皮肤2</button>
+		<ul>
+			<li id="one" title="one">1</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+	<script>
+		/*var one=document.getElementById("one");
+		var two=one.parentNode.nextSibling.nextSibling.children[0];
+		console.log(two);
+	
+		function getStyle(obj, attr) { 
+			if(obj.currentStyle) { 
+				return obj.currentStyle[attr];//IE兼容 
+			}else { 
+				return getComputedStyle(obj,null)[attr];//正常方法 
+			} 
+		}
+		console.log(one.getAttribute("background-color"))*/
+		/*var lnk = document.getElementsByTagName("link")[0];
+		function change(num) {
+			lnk.href="pifu"+num+".css"
+		}*/
+		//假设有两css文件  pifu1.css pifu2.css
+		//.pifu1   .pifu2
+		var lilest = document.getElementsByTagName("li");
+		for (var i=0;i<lilest.length;i++) {
+		
+			/*(function(i) {
+				lilest[i].onclick = function() {
+				this.style.background="red";
+				alert(i)
+				}
+			})(i)*/
+			lilest[i].onmousemove = function() {
+				for (var i=0;i<lilest.length;i++) {
+					lilest[i].style.background="#fff";
+				}
+				this.style.background="red";
+				
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*var obj=function(str) {
+			this.str=str;
+			this.shout=function() {
+				alert(this.str)//
+			}
+			this.shout2=function() {
+				setTimeout(this.shout,2000);
+			}
+		}
+		var aa = new obj("123");
+		aa.shout2();*/
+		
+		
+	</script>
+</html>

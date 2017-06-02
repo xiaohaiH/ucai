@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>js做hover效果</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#box {position: relative;}
+			#box .list{margin: 0;padding: 0;background:violet;width:200px;text-align: center;}
+			#box li{list-style:none;line-height:30px;height: 30px;width:200px;}
+			#box .ad{border: 2px solid green;display: none;margin: 0;padding: 0;width:100px;height: 150px;position:absolute;top:0;left:198px;background: darkviolet;text-align: center;}
+			#box .ad li{line-height:30px;height: 30px;width:200px;}
+			.banner{width:600px;height:300px;border: 1px solid black;overflow: hidden;}
+			.banner ul{width:3000px;text-align: center;}
+			.banner ul li{width:600px;height:300px;line-height:300px;float: left;list-style: none;}
+			.banner ul li:nth-child(1){background:pink;}
+			.banner ul li:nth-child(2){background:violet;}
+			.banner ul li:nth-child(3){background:orange;}
+			.banner ul li:nth-child(4){background:darkorange;}
+			.banner ul li:nth-child(5){background:orchid;}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul class="list">
+				<li>流星雨</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+			</ul>
+			<ul class="ad">
+				<li>abc</li>
+				<li>def</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+			</ul>
+			<ul class="ad">
+				<li>123</li>
+				<li>456</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+			</ul>
+			<ul class="ad">
+				<li>品牌的力量</li>
+				<li>舆论监督</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+			</ul>
+			<ul class="ad">
+				<li>雪下的那么深</li>
+				<li>下的那么认真</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+			</ul>
+			<ul class="ad">
+				<li>倒映出我在你</li>
+				<li>我并不在乎你</li>
+				<li>我只在乎</li>
+				<li>流星雨</li>
+				<li>流星雨</li>
+			</ul>
+		</div>
+		<!--<div class="banner">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>-->
+		<script>
+			var obox = document.getElementById("box");
+			var oli1 = document.getElementsByTagName("ul")[0].getElementsByTagName("li");
+			var oli2 = obox.getElementsByTagName("ul");
+			var judge = true;
+			for(var i=1;i<oli1.length;i++){
+				oli1[i].index = i;
+				oli1[i].onmouseenter = function(){
+					that = this;
+					judge = true;
+					for(var j=1;j<oli1.length;j++){
+						oli2[j].style.display = "none";
+					}
+					oli2[that.index].style.display = "block";
+				}
+				oli1[i].onmouseleave = function(){
+					that = this;
+					judge = false;
+					setTimeout(function (){
+						if(judge == false){
+							oli2[that.index].style.display = "none";
+						}	
+					},1000)
+				}
+			}
+			for(var i=1;i<oli1.length;i++){
+				oli2[i].index = i;
+				oli2[oli2[i].index].onmouseenter = function(){
+					judge = true;
+					oli2[this.index].style.display = "block";
+							console.log("c")
+				}
+				oli2[oli2[i].index].onmouseleave = function (){
+					that =this;
+					judge = false;
+					setTimeout(function(){
+						oli2[that.index].style.display = "none";
+						console.log("d")
+					},1000)
+				}
+			}
+			
+		</script>
+		<!--<script>
+			var obox = document.getElementsByClassName("box")[0];
+			var oli1 = document.getElementsByTagName("ul")[0].getElementsByTagName("li");
+			var oli2 = document.getElementsByClassName("ad");
+			console.log(oli2)
+			for(var i=0;i<oli1.length;i++){
+			var timer = ""
+				oli1[i].index = i;
+				oli2[i].index = i;
+				oli1[i].onmouseover = function(){
+					that = this;
+					for(var j=0;j<oli2.length;j++){
+						oli2[j].style.display = "none";
+					}
+					oli2[this.index].style.display = "block";
+				}
+				oli1[i].onmouseout = function(){
+					that = this;
+//					setTimeout(function(){
+						oli2[that.index].style.display = "none";
+//					},1000)
+				}
+		</script>-->
+		<!--<script>
+			var obox = document.getElementsByClassName("box")[0];
+			var oli1 = document.getElementsByTagName("ul")[0].getElementsByTagName("li");
+			var oli2 = document.getElementsByClassName("ad");
+			console.log(oli2)
+			for(var i=0;i<oli1.length;i++){
+			var timer = ""
+				oli1[i].index = i;
+				oli2[i].index = i;
+				oli1[i].onmouseover = function(){
+					that = this;
+					for(var j=0;j<oli2.length;j++){
+						oli2[j].style.display = "none";
+					}
+					oli2[this.index].style.display = "block";
+				}
+				oli1[i].onmouseout = function(){
+					that = this;
+//					setTimeout(function(){
+						oli2[that.index].style.display = "none";
+//					},1000)
+				}
+				oli2[i].onmouseover = function(e){//声明event事件
+					var x = e.relatedTarget; //定义relatedTarget--用来判断
+					if(e.x){//如果当前元素是当前对象，值不变
+						e.x;//是的话值不变
+					}else{//如果不是当前对象，就给鼠标来自的那个元素。
+						e.formTarget
+					}
+					while(x&&x!=this){//如果x不等于事件元素，循环找到事件元素下的子元素然后x等于其父级元素
+						x = x.parentNode;//   则x等于其父级元素
+					}
+					if(x!=this){//如果x不等于事件元素     开始写想要的代码
+						console.log("c")
+						oli2[this.index].style.display = "block";
+					}
+				}
+				oli2[i].onmouseout = function (e){//解释同上
+					that =this;
+					var x = e.relatedTarget;
+					if(e.x){
+						e.x
+					}else{
+						e.formTarget
+					}
+					while(x&&x!=this){
+						x = x.parentNode;
+					}
+					if(x!=this){
+						setTimeout(function(){
+							console.log("d")
+							oli2[that.index].style.display = "none";
+						},1000)
+					}
+				}
+			}
+			
+		</script>-->
+		<!--<script type="text/javascript" src="js/运动参数.js"></script>
+		<script>
+			var obanner = document.getElementsByClassName("banner")[0].getElementsByTagName("ul")[0];
+			var i = -1;
+			setInterval(function(){
+				obanner.style.marginLeft = (i*600)+"px";
+				i--;
+				if(i==-5){
+					i= 0;
+				}
+				console.log(i)
+			},2000)
+		</script>-->
+	</body>
+</html>
