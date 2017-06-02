@@ -1,0 +1,111 @@
+
+body{
+	font-size:12px;
+}
+
+.aa{
+	overflow:scroll;/*在没有超出的情况下也会出现滚动条*/
+	background:red;
+	height:80px;
+	width:100px;
+	float:left;
+}
+
+.one{
+	overflow:hidden;/*文字超出隐藏*/
+	background:red;
+	height:80px;
+	width:100px;
+	float:left;
+}
+.one p{
+	height:100px;
+	margin:0;
+	background:violet;
+}
+
+
+.two{
+	margin-left:20px;
+	overflow:visible;/*文字超出就超出，不做更改，*/
+	background:red;
+	height:80px;
+	width:100px;
+	float:left;
+}
+.two p{
+	height:100px;
+	margin:0;
+	background:violet;
+}
+
+.three{
+	margin-left:20px;
+	overflow:scroll;/*出现滚动条*/
+	background:red;
+	height:80px;
+	width:100px;
+	float:left;
+}
+.three p{
+	height:100px;
+	margin:0;
+	background:violet;
+}
+
+.four{
+	margin-left:20px;
+	overflow:auto;/*哪一个方向超出，哪个方向就出现滚动条*/
+	background:red;
+	height:80px;
+	width:100px;
+	float:left;
+}
+.four p{
+	height:100px;
+	margin:0;
+	background:violet;
+}
+
+.five{
+	margin-left:20px;
+	overflow-x:hidden;/*横向超出隐藏*/
+	background:red;
+	height:80px;
+	width:100px;
+	float:left;
+}
+.five p{
+	height:100px;
+	margin:0;
+	background:violet;
+}
+
+.six{
+	margin-left:600px;
+	overflow-y:hidden;/*纵向超出框架隐藏*/
+	background:red;
+	height:80px;
+	width:100px;
+}
+.six p{
+	height:100px;
+	margin:0;
+	background:violet;
+}
+
+
+
+
+h2{
+	margin-top:80px;
+}
+section{
+	minheight:300px;/*最小高度为300像素*/
+	maxheight:600px;/*最小高度为600像素*/
+	maxwidth:500px;/*最大宽度为500*/
+	minwidth:300px;/*最小宽度为300像素*/
+	height:400px;/*高度400*/
+	background:red;
+}
+

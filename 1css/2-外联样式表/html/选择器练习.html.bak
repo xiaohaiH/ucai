@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+<head>
+	<title>选择器练习</title>
+	<meta charset="utf-8" />
+	<link href="../css/选择器练习.css" rel="stylesheet" />
+</head>
+<body>
+<!--
+选择器分为以下九种:
+	1通用选择器  *；
+	2.ID选择器   id="";
+	3.class选择器  class="";
+	4.类选择器   div{};
+	5.分类选择器   div.class {}就是div+id或者class的名字在加属性 ;
+	6.群组选择器   div,p,h1,span ;
+	7.后代选择器   div p a{};
+	8.子代选择器   div>p{};
+	9.伪类选择器   div:hover,,,div:focus;
+
+伪类选择器分以下六种:
+	1.链接伪类   link:未访问时的链接状态,visited:访问后的链接状态；
+	2.动态伪类   hover:鼠标触碰时的状态,active:元素激活时的状态,focus:元素获取焦点时的状态,一般用于文本框,密码框等,也可用于其他属性;
+	3.目标伪类 
+	4.元素状态伪类
+	5.结构伪类
+	6.否定伪类
+
+rgba(0,0,0,1);rgba(红,绿,蓝,透明度)透明度在0~1之间，只影响设置的属性，不影响里面的其他内容。
+-->
+	
+	
+	<div>
+		<span>内容写在css里面！！内容写在css里面！！内容写在css里面！！内容写在css里面！！内容写在css里面！！</span>
+		<ul>
+			<li class="li" id="li">明月几时有，把酒问青天。</li>
+			<p class="li">不知天上宫阙，今夕是何年</p>
+			<li class="li">我欲乘风归去，又恐琼楼玉宇</li>
+			<li class="li">高处不胜寒，起舞弄清影</li>
+			<li class="li">何似在人间</li>
+		</ul>
+	</div>
+	<p>群组选择器</p>
+	<span>
+		<ul>
+			<li><a href="http://www.baidu.com">哈&nbsp;哈&nbsp;哈</a></li>
+		</ul>
+		<p>呵&nbsp;呵&nbsp;呵</p>
+		<p>
+			<a href="https://qq.com">啊&nbsp;啊&nbsp;啊</a>
+		</p>
+	</span>
+</body>
+</html>

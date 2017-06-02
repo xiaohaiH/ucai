@@ -1,0 +1,45 @@
+<!doctype>
+<html>
+<head>
+	<title>css样式练习</title>
+	<meta charset="utf-8" />
+	<link href="../css/index.css" rel="stylesheet" />
+</head>
+<body>
+	<h1>
+		展示了overflow的属性:visible,hidden,scroll,auto和overflow-x,overflow-y这几种属性。
+	</h1>
+
+	<div class="aa">
+		<p>我用overflow</p>
+		<span>我是男生</span>
+	</div>
+	<div class="one">
+		<p>我用overflow:hidden隐藏了下面的字体</p>
+		<span>我是男生</span>
+	</div>
+	<div class="two">
+		<p>我用overflow:visible(默认属性)显示了下面的字体</p>
+		<span>我是男生</span>
+	</div>
+	<div class="three">
+		<p>我用overflow:scroll将超出的文字用滚动条来显示,并且显示两根滚动条</p>
+		<span>我是男生</span>
+	</div>
+	<div class="four">
+		<p>我用overflow:auto将超出的文字用滚动条来显示，只显示超出的一根滚动条</p>
+		<span>我是男生</span>
+	</div>
+	<div class="five">
+		<p>我用overflow-x:hidden指定水平方向文字超出隐藏</p>
+		<span>我是男生</span>
+	</div>
+	<div class="six">
+		<p>我用overflow-y:hidden指定垂直方向文字超出隐藏</p>
+		<span>我是男生</span>
+	</div>
+	<h2>这里我展示了maxwidth和minwidth最大宽度和最小宽度；maxheight和minheight最大高度和最小高度</h2>
+	<section></section>
+
+</body>
+</html>

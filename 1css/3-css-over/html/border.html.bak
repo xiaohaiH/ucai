@@ -1,0 +1,28 @@
+<!doctype>
+<html>
+<head>
+	<title>border practice</title>
+	<meta charset="utf-8" />
+	<link href="../css/border.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="box">
+		<p>
+			这个网页讲了以下2点：
+			1.给边框添加图片,设置图片的大小和他的属性值,属性有三种repeat:平铺,round铺满和stretch拉伸要配合border-width使用。只适用内部样式，外联样式要加border-style:solid
+			2.outline:none;这个取消文本框获得焦点时出现的边框。
+		</p>
+		<input type="text" placeholder="this is textbox"  />
+	</div>
+	
+	<div class="round">设置边框圆角</div>
+	<div class="round2">设置阴影效果</div>
+	<div class="ball">
+		<div class="ball2">
+			<div class="ball3"></div>
+		</div>
+	</div>
+	<div id="ball"></div>
+	<div id="triangle"></div>
+</body>
+</html>

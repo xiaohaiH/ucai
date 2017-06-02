@@ -1,0 +1,27 @@
+.box{
+	width:200px;
+	height:200px;
+	border:1px solid black;
+	overflow:hidden;
+}
+.box #one{
+	width:200px;
+	height:200px;
+	background:red;
+}
+.box #two{
+	width:200px;
+	height:200px;
+	background:yellow;
+}
+.box #three{
+	width:200px;
+	height:200px;
+	background:blue;
+}
+.box #four{
+	width:200px;
+	height:200px;
+	background:violet;
+}
+

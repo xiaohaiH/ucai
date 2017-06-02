@@ -1,0 +1,20 @@
+<!doctype>
+<html>
+<head>
+	<title>触碰改变颜色</title>
+	<meta charset="utf-8" />
+	<link href="../css/hover.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="box">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+		<div class="four"></div>
+	</div>
+	<a href="#one">一</a>
+	<a href="#two">二</a>
+	<a href="#three">三</a>
+	<a href="#four">四</a>
+</body>
+</html>

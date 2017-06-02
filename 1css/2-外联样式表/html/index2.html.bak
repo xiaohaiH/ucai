@@ -1,0 +1,21 @@
+<!doctype>
+<html>
+<head>
+	<title>样式表</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="../css/index.css" /><!--外部样式表写法一-->
+	<style type="text/css">
+		@import url(../css/index.css);/*外部样式表写法二*/
+
+		/*内部样式表写法*/
+		div{
+			background:gray;
+			color:yellow;
+		}
+		/**/
+	</style>
+</head>
+<body>
+	<div style="background:green;color:voilet;">ghjkl;'</div>
+</body>
+</html>
